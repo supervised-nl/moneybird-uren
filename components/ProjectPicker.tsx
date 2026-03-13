@@ -48,11 +48,11 @@ export default function ProjectPicker({ value, onChange, disabled }: Props) {
         type="button"
         disabled={disabled || loading}
         onClick={() => setOpen((o) => !o)}
-        className="w-full rounded-lg border border-gray-200 bg-white px-3.5 py-2.5 text-sm text-gray-950 text-left flex items-center justify-between hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 transition-all disabled:opacity-50 disabled:cursor-not-allowed dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100"
+        className="w-full rounded-lg border border-gray-200 bg-white px-3.5 py-2.5 text-sm text-gray-900 text-left flex items-center justify-between hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all disabled:opacity-50 disabled:cursor-not-allowed dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100"
         aria-haspopup="listbox"
         aria-expanded={open}
       >
-        <span className={selected ? "text-gray-950 dark:text-gray-100" : "text-gray-400"}>
+        <span className={selected ? "text-gray-900 dark:text-gray-100" : "text-gray-400"}>
           {loading ? "Laden..." : selected ? selected.name : "Selecteer project..."}
         </span>
         <ChevronDown className="h-4 w-4 text-gray-400 shrink-0" />
@@ -69,7 +69,7 @@ export default function ProjectPicker({ value, onChange, disabled }: Props) {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Zoek project..."
-                className="w-full text-sm outline-none text-gray-950 placeholder:text-gray-400 dark:text-gray-100 dark:bg-gray-900"
+                className="w-full text-sm outline-none text-gray-900 placeholder:text-gray-400 dark:text-gray-100 dark:bg-gray-900"
               />
             </div>
           </div>
@@ -97,7 +97,7 @@ export default function ProjectPicker({ value, onChange, disabled }: Props) {
                 aria-selected={p.id === value}
                 className={`px-3.5 py-2.5 text-sm cursor-pointer transition-colors ${
                   p.id === value
-                    ? "bg-sky-50 text-sky-700 font-medium"
+                    ? "bg-blue-50 text-blue-700 font-medium"
                     : "text-gray-700 hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-gray-800"
                 }`}
                 onClick={() => {

@@ -98,7 +98,7 @@ export default function TimeEntryModal({ entry, onClose, onSaved, onDeleted }: P
     >
       <div className="bg-white rounded-2xl shadow-xl border border-gray-200 w-full max-w-lg animate-slide-up dark:bg-gray-900 dark:border-gray-800">
         <div className="px-6 py-4 border-b border-gray-200 dark:border-gray-800 flex items-center justify-between">
-          <h2 className="text-base font-semibold text-gray-950 dark:text-gray-100">Uren bewerken</h2>
+          <h2 className="text-base font-semibold text-gray-900 dark:text-gray-100">Uren bewerken</h2>
           <button
             onClick={onClose}
             className="text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition-colors"
@@ -124,7 +124,7 @@ export default function TimeEntryModal({ entry, onClose, onSaved, onDeleted }: P
                 type="date"
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
-                className="w-full rounded-lg border border-gray-200 bg-white px-3.5 py-2.5 text-sm text-gray-950 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 transition-all dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100"
+                className="w-full rounded-lg border border-gray-200 bg-white px-3.5 py-2.5 text-sm text-gray-900 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100"
                 required
               />
             </div>
@@ -139,7 +139,7 @@ export default function TimeEntryModal({ entry, onClose, onSaved, onDeleted }: P
                   value={startTime}
                   onChange={(e) => setStartTime(e.target.value)}
                   onBlur={(e) => setStartTime(normalizeTimeInput(e.target.value))}
-                  className="w-full rounded-lg border border-gray-200 bg-white px-3.5 py-2.5 text-sm text-gray-950 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 transition-all dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100"
+                  className="w-full rounded-lg border border-gray-200 bg-white px-3.5 py-2.5 text-sm text-gray-900 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100"
                   required
                 />
               </div>
@@ -152,7 +152,7 @@ export default function TimeEntryModal({ entry, onClose, onSaved, onDeleted }: P
                   value={endTime}
                   onChange={(e) => setEndTime(e.target.value)}
                   onBlur={(e) => setEndTime(normalizeTimeInput(e.target.value))}
-                  className="w-full rounded-lg border border-gray-200 bg-white px-3.5 py-2.5 text-sm text-gray-950 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 transition-all dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100"
+                  className="w-full rounded-lg border border-gray-200 bg-white px-3.5 py-2.5 text-sm text-gray-900 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100"
                   required
                 />
               </div>
@@ -187,7 +187,7 @@ export default function TimeEntryModal({ entry, onClose, onSaved, onDeleted }: P
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 placeholder="Wat heb je gedaan?"
-                className="w-full rounded-lg border border-gray-200 bg-white px-3.5 py-2.5 text-sm text-gray-950 placeholder:text-gray-400 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 transition-all dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100"
+                className="w-full rounded-lg border border-gray-200 bg-white px-3.5 py-2.5 text-sm text-gray-900 placeholder:text-gray-400 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100"
               />
             </div>
 
@@ -198,7 +198,7 @@ export default function TimeEntryModal({ entry, onClose, onSaved, onDeleted }: P
                 aria-checked={billable}
                 onClick={() => setBillable((b) => !b)}
                 className={`relative inline-flex h-5 w-9 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors ${
-                  billable ? "bg-sky-500" : "bg-gray-200"
+                  billable ? "bg-blue-600" : "bg-gray-200"
                 }`}
               >
                 <span
@@ -246,14 +246,14 @@ export default function TimeEntryModal({ entry, onClose, onSaved, onDeleted }: P
               <button
                 type="button"
                 onClick={onClose}
-                className="inline-flex items-center justify-center rounded-lg bg-white border border-gray-200 px-4 py-2.5 text-sm font-semibold text-gray-700 shadow-sm hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-sky-500/20 transition-all"
+                className="inline-flex items-center justify-center rounded-lg bg-white border border-gray-200 px-4 py-2.5 text-sm font-semibold text-gray-700 shadow-sm hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600/20 transition-all"
               >
                 Annuleer
               </button>
               <button
                 type="submit"
                 disabled={saving}
-                className="inline-flex items-center justify-center rounded-lg bg-sky-500 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-sky-600 active:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                className="inline-flex items-center justify-center rounded-lg bg-blue-600 dark:bg-blue-500 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-700 active:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-600/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {saving ? "Opslaan..." : "Opslaan"}
               </button>

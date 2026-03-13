@@ -4,7 +4,7 @@ export default function HomePage() {
   return (
     <div className="max-w-lg mx-auto">
       <div className="mb-6">
-        <h1 className="text-xl font-bold tracking-tight text-gray-950 dark:text-gray-100">
+        <h1 className="text-xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
           Uren loggen
         </h1>
         <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">

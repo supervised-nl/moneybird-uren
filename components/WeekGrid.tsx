@@ -158,11 +158,11 @@ export default function WeekGrid() {
                 <th
                   key={day.dateStr}
                   className={`text-left text-xs font-semibold text-gray-500 uppercase tracking-wider px-4 py-3 ${
-                    day.isToday ? "bg-sky-50/50 text-sky-600" : ""
+                    day.isToday ? "bg-blue-50/50 text-blue-600" : ""
                   } ${day.isWeekend ? "opacity-60" : ""}`}
                 >
                   <div>{day.date.toLocaleDateString("nl-NL", { weekday: "short" })}</div>
-                  <div className={`font-bold text-sm mt-0.5 ${day.isToday ? "text-sky-600" : "text-gray-950"}`}>
+                  <div className={`font-bold text-sm mt-0.5 ${day.isToday ? "text-blue-600" : "text-gray-900"}`}>
                     {day.date.getDate()}
                   </div>
                 </th>
@@ -177,7 +177,7 @@ export default function WeekGrid() {
               <tr>
                 <td colSpan={9} className="px-4 py-8 text-center text-sm text-gray-400">
                   <div className="flex items-center justify-center gap-2">
-                    <RefreshCw className="h-4 w-4 animate-spin text-sky-500" />
+                    <RefreshCw className="h-4 w-4 animate-spin text-blue-500" />
                     Laden...
                   </div>
                 </td>
@@ -197,7 +197,7 @@ export default function WeekGrid() {
 
                 return (
                   <tr key={project} className="border-t border-gray-100 hover:bg-gray-50 transition-colors">
-                    <td className="px-4 py-3 text-sm text-gray-950 font-medium max-w-[160px] truncate">
+                    <td className="px-4 py-3 text-sm text-gray-900 font-medium max-w-[160px] truncate">
                       {project}
                     </td>
                     {days.map((day) => {
@@ -209,8 +209,8 @@ export default function WeekGrid() {
                       return (
                         <td
                           key={day.dateStr}
-                          className={`px-4 py-3 text-sm text-gray-950 ${
-                            day.isToday ? "bg-sky-50/50" : ""
+                          className={`px-4 py-3 text-sm text-gray-900 ${
+                            day.isToday ? "bg-blue-50/50" : ""
                           } ${day.isWeekend ? "opacity-60" : ""}`}
                         >
                           {dayEntries.length > 0 ? (
@@ -219,12 +219,12 @@ export default function WeekGrid() {
                                 <button
                                   key={entry.id}
                                   onClick={() => setSelectedEntry(entry)}
-                                  className="block w-full text-left text-xs bg-sky-50 text-sky-700 rounded px-1.5 py-1 hover:bg-sky-100 transition-colors truncate"
+                                  className="block w-full text-left text-xs bg-blue-50 text-blue-700 rounded px-1.5 py-1 hover:bg-blue-100 transition-colors truncate"
                                   title={entry.description || formatDuration(calcDurationMinutes(entry.started_at, entry.ended_at))}
                                 >
                                   {formatDuration(calcDurationMinutes(entry.started_at, entry.ended_at))}
                                   {entry.description && (
-                                    <span className="text-sky-500 ml-1">· {entry.description}</span>
+                                    <span className="text-blue-500 ml-1">· {entry.description}</span>
                                   )}
                                 </button>
                               ))}
@@ -240,7 +240,7 @@ export default function WeekGrid() {
                         </td>
                       );
                     })}
-                    <td className="px-4 py-3 text-sm font-bold text-gray-950 text-right">
+                    <td className="px-4 py-3 text-sm font-bold text-gray-900 text-right">
                       {formatDuration(projectTotal)}
                     </td>
                   </tr>
@@ -250,12 +250,12 @@ export default function WeekGrid() {
           </tbody>
           <tfoot>
             <tr className="border-t-2 border-gray-200 bg-gray-50">
-              <td className="px-4 py-3 text-sm font-bold text-gray-950">Totaal</td>
+              <td className="px-4 py-3 text-sm font-bold text-gray-900">Totaal</td>
               {days.map((day) => (
                 <td
                   key={day.dateStr}
-                  className={`px-4 py-3 text-sm font-bold text-gray-950 ${
-                    day.isToday ? "bg-sky-50/50" : ""
+                  className={`px-4 py-3 text-sm font-bold text-gray-900 ${
+                    day.isToday ? "bg-blue-50/50" : ""
                   } ${day.isWeekend ? "opacity-60" : ""}`}
                 >
                   {dayTotals[day.dateStr] > 0
@@ -263,7 +263,7 @@ export default function WeekGrid() {
                     : <span className="text-gray-300 font-normal">—</span>}
                 </td>
               ))}
-              <td className="px-4 py-3 text-sm font-bold text-gray-950 text-right">
+              <td className="px-4 py-3 text-sm font-bold text-gray-900 text-right">
                 {weekTotal > 0 ? formatDuration(weekTotal) : "—"}
               </td>
             </tr>
@@ -279,8 +279,8 @@ export default function WeekGrid() {
           );
           if (dayEntries.length === 0 && !day.isToday) return null;
           return (
-            <div key={day.dateStr} className={`bg-white rounded-xl shadow-sm border overflow-hidden ${day.isToday ? "border-sky-200" : "border-gray-200"}`}>
-              <div className={`px-4 py-2 text-xs font-semibold uppercase tracking-wider ${day.isToday ? "bg-sky-50 text-sky-600" : "bg-gray-50 text-gray-500"}`}>
+            <div key={day.dateStr} className={`bg-white rounded-xl shadow-sm border overflow-hidden ${day.isToday ? "border-blue-200" : "border-gray-200"}`}>
+              <div className={`px-4 py-2 text-xs font-semibold uppercase tracking-wider ${day.isToday ? "bg-blue-50 text-blue-600" : "bg-gray-50 text-gray-500"}`}>
                 {formatDateDisplay(day.date)}
                 {dayTotals[day.dateStr] > 0 && (
                   <span className="ml-2 font-bold">{formatDuration(dayTotals[day.dateStr])}</span>
@@ -297,7 +297,7 @@ export default function WeekGrid() {
                   >
                     <div className="flex items-start justify-between gap-2">
                       <div>
-                        <div className="text-sm font-medium text-gray-950">
+                        <div className="text-sm font-medium text-gray-900">
                           {formatDuration(calcDurationMinutes(entry.started_at, entry.ended_at))}
                         </div>
                         {entry.description && (
@@ -308,7 +308,7 @@ export default function WeekGrid() {
                       </div>
                       <div className="text-right shrink-0">
                         {entry.project && (
-                          <div className="text-xs text-sky-600 font-medium">{entry.project.name}</div>
+                          <div className="text-xs text-blue-600 font-medium">{entry.project.name}</div>
                         )}
                         {entry.contact && (
                           <div className="text-xs text-gray-500">

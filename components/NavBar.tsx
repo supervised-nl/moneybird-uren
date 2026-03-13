@@ -35,9 +35,9 @@ export default function NavBar() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-14">
           <div className="flex items-center gap-6">
-            <div className="flex items-center gap-2 text-sky-500">
+            <div className="flex items-center gap-2 text-blue-500">
               <Clock className="h-5 w-5" />
-              <span className="font-semibold text-gray-950 dark:text-gray-100 text-sm">
+              <span className="font-semibold text-gray-900 dark:text-gray-100 text-sm">
                 Moneybird Uren
               </span>
             </div>
@@ -46,8 +46,8 @@ export default function NavBar() {
                 href="/"
                 className={`text-sm px-3 py-1.5 rounded-md transition-colors ${
                   pathname === "/"
-                    ? "text-sky-600 font-semibold"
-                    : "text-gray-600 hover:text-gray-950 font-medium dark:text-gray-400 dark:hover:text-gray-100"
+                    ? "text-blue-600 font-semibold"
+                    : "text-gray-600 hover:text-gray-900 font-medium dark:text-gray-400 dark:hover:text-gray-100"
                 }`}
               >
                 Uren loggen
@@ -56,8 +56,8 @@ export default function NavBar() {
                 href="/week"
                 className={`text-sm px-3 py-1.5 rounded-md transition-colors ${
                   pathname === "/week"
-                    ? "text-sky-600 font-semibold"
-                    : "text-gray-600 hover:text-gray-950 font-medium dark:text-gray-400 dark:hover:text-gray-100"
+                    ? "text-blue-600 font-semibold"
+                    : "text-gray-600 hover:text-gray-900 font-medium dark:text-gray-400 dark:hover:text-gray-100"
                 }`}
               >
                 Weekoverzicht
@@ -67,14 +67,14 @@ export default function NavBar() {
           <div className="flex items-center gap-2">
             <button
               onClick={toggleDark}
-              className="p-2 rounded-md text-gray-500 hover:text-gray-950 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-gray-100 dark:hover:bg-gray-800 transition-colors"
+              className="p-2 rounded-md text-gray-500 hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-gray-100 dark:hover:bg-gray-800 transition-colors"
               aria-label="Toggle dark mode"
             >
               {dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
             </button>
             <button
               onClick={() => signOut({ callbackUrl: "/login" })}
-              className="p-2 rounded-md text-gray-500 hover:text-gray-950 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-gray-100 dark:hover:bg-gray-800 transition-colors"
+              className="p-2 rounded-md text-gray-500 hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-gray-100 dark:hover:bg-gray-800 transition-colors"
               aria-label="Uitloggen"
               title="Uitloggen"
             >
