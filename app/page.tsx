@@ -11,7 +11,7 @@ export default function HomePage() {
           Registreer je uren snel en direct in Moneybird.
         </p>
       </div>
-      <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-200 dark:border-gray-800 p-6">
+      <div className="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 p-6">
         <TimeEntryForm />
       </div>
     </div>

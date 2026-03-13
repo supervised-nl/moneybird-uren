@@ -35,7 +35,7 @@ export default function NavBar() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-14">
           <div className="flex items-center gap-6">
-            <div className="flex items-center gap-2 text-blue-500">
+            <div className="flex items-center gap-2 text-gray-500">
               <Clock className="h-5 w-5" />
               <span className="font-semibold text-gray-900 dark:text-gray-100 text-sm">
                 Moneybird Uren
@@ -46,7 +46,7 @@ export default function NavBar() {
                 href="/"
                 className={`text-sm px-3 py-1.5 rounded-md transition-colors ${
                   pathname === "/"
-                    ? "text-blue-600 font-semibold"
+                    ? "text-gray-900 font-semibold"
                     : "text-gray-600 hover:text-gray-900 font-medium dark:text-gray-400 dark:hover:text-gray-100"
                 }`}
               >
@@ -56,7 +56,7 @@ export default function NavBar() {
                 href="/week"
                 className={`text-sm px-3 py-1.5 rounded-md transition-colors ${
                   pathname === "/week"
-                    ? "text-blue-600 font-semibold"
+                    ? "text-gray-900 font-semibold"
                     : "text-gray-600 hover:text-gray-900 font-medium dark:text-gray-400 dark:hover:text-gray-100"
                 }`}
               >

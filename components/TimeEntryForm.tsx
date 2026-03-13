@@ -178,7 +178,7 @@ export default function TimeEntryForm() {
               type="date"
               value={date}
               onChange={(e) => setDate(e.target.value)}
-              className="flex-1 rounded-lg border border-gray-200 bg-white px-3.5 py-2.5 text-sm text-gray-900 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100"
+              className="flex-1 rounded-lg border border-gray-200 bg-white px-3.5 py-2.5 text-sm text-gray-900 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-900/10 focus:border-gray-400 transition-all dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100"
               required
             />
             <button
@@ -188,7 +188,7 @@ export default function TimeEntryForm() {
                 d.setDate(d.getDate() - 1);
                 setDate(d.toLocaleDateString("en-CA", { timeZone: "Europe/Amsterdam" }));
               }}
-              className="inline-flex items-center justify-center rounded-lg bg-white border border-gray-200 px-3 py-2.5 text-xs font-semibold text-gray-700 shadow-sm hover:bg-gray-50 hover:border-gray-300 transition-all"
+              className="inline-flex items-center justify-center rounded-lg bg-white border border-gray-200 px-3 py-2.5 text-xs font-semibold text-gray-700 hover:bg-gray-50 hover:border-gray-300 transition-all"
             >
               Gisteren
             </button>
@@ -199,7 +199,7 @@ export default function TimeEntryForm() {
                 d.setDate(d.getDate() - 2);
                 setDate(d.toLocaleDateString("en-CA", { timeZone: "Europe/Amsterdam" }));
               }}
-              className="inline-flex items-center justify-center rounded-lg bg-white border border-gray-200 px-3 py-2.5 text-xs font-semibold text-gray-700 shadow-sm hover:bg-gray-50 hover:border-gray-300 transition-all"
+              className="inline-flex items-center justify-center rounded-lg bg-white border border-gray-200 px-3 py-2.5 text-xs font-semibold text-gray-700 hover:bg-gray-50 hover:border-gray-300 transition-all"
             >
               Eergisteren
             </button>
@@ -218,7 +218,7 @@ export default function TimeEntryForm() {
               value={startTime}
               onChange={(e) => setStartTime(e.target.value)}
               onBlur={handleStartTimeBlur}
-              className="w-full rounded-lg border border-gray-200 bg-white px-3.5 py-2.5 text-sm text-gray-900 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100"
+              className="w-full rounded-lg border border-gray-200 bg-white px-3.5 py-2.5 text-sm text-gray-900 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-900/10 focus:border-gray-400 transition-all dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100"
               required
             />
           </div>
@@ -232,7 +232,7 @@ export default function TimeEntryForm() {
               value={endTime}
               onChange={(e) => setEndTime(e.target.value)}
               onBlur={handleEndTimeBlur}
-              className="w-full rounded-lg border border-gray-200 bg-white px-3.5 py-2.5 text-sm text-gray-900 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100"
+              className="w-full rounded-lg border border-gray-200 bg-white px-3.5 py-2.5 text-sm text-gray-900 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-900/10 focus:border-gray-400 transition-all dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100"
               required
             />
           </div>
@@ -278,7 +278,7 @@ export default function TimeEntryForm() {
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             placeholder="Wat heb je gedaan?"
-            className="w-full rounded-lg border border-gray-200 bg-white px-3.5 py-2.5 text-sm text-gray-900 placeholder:text-gray-400 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100"
+            className="w-full rounded-lg border border-gray-200 bg-white px-3.5 py-2.5 text-sm text-gray-900 placeholder:text-gray-400 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-900/10 focus:border-gray-400 transition-all dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100"
           />
         </div>
 
@@ -290,7 +290,7 @@ export default function TimeEntryForm() {
             aria-checked={billable}
             onClick={() => setBillable((b) => !b)}
             className={`relative inline-flex h-5 w-9 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors ${
-              billable ? "bg-blue-600" : "bg-gray-200"
+              billable ? "bg-gray-950" : "bg-gray-200"
             }`}
           >
             <span
@@ -315,7 +315,7 @@ export default function TimeEntryForm() {
                     setContactId(fav.contactId);
                     setProjectId(fav.projectId);
                   }}
-                  className="inline-flex items-center rounded-lg border border-gray-200 bg-gray-50 px-3 py-1.5 text-xs font-semibold text-gray-600 hover:bg-blue-50 hover:text-blue-700 hover:border-blue-200 transition-all"
+                  className="inline-flex items-center rounded-lg border border-gray-200 bg-gray-50 px-3 py-1.5 text-xs font-semibold text-gray-600 hover:bg-gray-100 hover:text-gray-900 hover:border-gray-200 transition-all"
                 >
                   {fav.contactName || fav.contactId || "—"} / {fav.projectName || fav.projectId || "—"}
                 </button>
@@ -328,7 +328,7 @@ export default function TimeEntryForm() {
           <button
             type="submit"
             disabled={saving}
-            className="w-full inline-flex items-center justify-center rounded-lg bg-blue-600 dark:bg-blue-500 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-700 active:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-600/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full inline-flex items-center justify-center rounded-lg bg-gray-950 px-4 py-2.5 text-sm font-semibold text-white hover:bg-gray-800 active:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-900/10 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {saving ? "Opslaan..." : "Uren opslaan"}
           </button>
