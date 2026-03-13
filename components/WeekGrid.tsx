@@ -102,14 +102,14 @@ export default function WeekGrid() {
         <div className="flex items-center gap-2">
           <button
             onClick={prevWeek}
-            className="inline-flex items-center justify-center rounded-lg bg-white border border-gray-200 p-2 text-gray-700 hover:bg-gray-50 hover:border-gray-300 transition-all"
+            className="inline-flex items-center justify-center rounded-lg bg-white border border-gray-200 p-2 text-gray-700 hover:bg-gray-50 hover:border-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:border-gray-600 transition-all"
             aria-label="Vorige week"
           >
             <ChevronLeft className="h-4 w-4" />
           </button>
           <button
             onClick={nextWeek}
-            className="inline-flex items-center justify-center rounded-lg bg-white border border-gray-200 p-2 text-gray-700 hover:bg-gray-50 hover:border-gray-300 transition-all"
+            className="inline-flex items-center justify-center rounded-lg bg-white border border-gray-200 p-2 text-gray-700 hover:bg-gray-50 hover:border-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:border-gray-600 transition-all"
             aria-label="Volgende week"
           >
             <ChevronRight className="h-4 w-4" />
@@ -117,14 +117,14 @@ export default function WeekGrid() {
           {!isCurrentWeek && (
             <button
               onClick={goToCurrentWeek}
-              className="inline-flex items-center justify-center rounded-lg bg-white border border-gray-200 px-3 py-2 text-xs font-semibold text-gray-700 hover:bg-gray-50 hover:border-gray-300 transition-all"
+              className="inline-flex items-center justify-center rounded-lg bg-white border border-gray-200 px-3 py-2 text-xs font-semibold text-gray-700 hover:bg-gray-50 hover:border-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:border-gray-600 transition-all"
             >
               Deze week
             </button>
           )}
         </div>
         <div className="flex items-center gap-3">
-          <span className="text-sm font-medium text-gray-600">
+          <span className="text-sm font-medium text-gray-600 dark:text-gray-400">
             {weekStart.toLocaleDateString("nl-NL", { day: "numeric", month: "long", year: "numeric" })}
             {" — "}
             {weekEnd.toLocaleDateString("nl-NL", { day: "numeric", month: "long", year: "numeric" })}
@@ -132,7 +132,7 @@ export default function WeekGrid() {
           <button
             onClick={refresh}
             disabled={loading}
-            className="inline-flex items-center justify-center rounded-lg bg-white border border-gray-200 p-2 text-gray-700 hover:bg-gray-50 hover:border-gray-300 transition-all disabled:opacity-50"
+            className="inline-flex items-center justify-center rounded-lg bg-white border border-gray-200 p-2 text-gray-700 hover:bg-gray-50 hover:border-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:border-gray-600 transition-all disabled:opacity-50"
             aria-label="Vernieuwen"
           >
             <RefreshCw className={`h-4 w-4 ${loading ? "animate-spin" : ""}`} />
@@ -141,33 +141,33 @@ export default function WeekGrid() {
       </div>
 
       {error && (
-        <div className="text-sm text-red-700 bg-red-50 border border-red-200 rounded-lg px-3.5 py-2.5">
+        <div className="text-sm text-red-700 bg-red-50 border border-red-200 rounded-lg px-3.5 py-2.5 dark:text-red-400 dark:bg-red-900/20 dark:border-red-800">
           {error}
         </div>
       )}
 
       {/* Grid */}
-      <div className="overflow-x-auto overflow-hidden rounded-lg border border-gray-200">
+      <div className="overflow-x-auto overflow-hidden rounded-lg border border-gray-200 dark:border-gray-700">
         <table className="w-full min-w-[700px]">
           <thead>
-            <tr className="bg-gray-50">
-              <th className="text-left text-xs font-semibold text-gray-500 uppercase tracking-wider px-4 py-3 w-40">
+            <tr className="bg-gray-50 dark:bg-gray-800">
+              <th className="text-left text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider px-4 py-3 w-40">
                 Project
               </th>
               {days.map((day) => (
                 <th
                   key={day.dateStr}
-                  className={`text-left text-xs font-semibold text-gray-500 uppercase tracking-wider px-4 py-3 ${
-                    day.isToday ? "bg-gray-50 text-gray-900" : ""
+                  className={`text-left text-xs font-semibold uppercase tracking-wider px-4 py-3 ${
+                    day.isToday ? "bg-blue-50 text-blue-700 dark:bg-blue-900/20 dark:text-blue-300" : "text-gray-500 dark:text-gray-400"
                   } ${day.isWeekend ? "opacity-60" : ""}`}
                 >
                   <div>{day.date.toLocaleDateString("nl-NL", { weekday: "short" })}</div>
-                  <div className={`font-bold text-sm mt-0.5 ${day.isToday ? "text-gray-900" : "text-gray-900"}`}>
+                  <div className={`font-bold text-sm mt-0.5 ${day.isToday ? "text-blue-700 dark:text-blue-300" : "text-gray-900 dark:text-gray-100"}`}>
                     {day.date.getDate()}
                   </div>
                 </th>
               ))}
-              <th className="text-right text-xs font-semibold text-gray-500 uppercase tracking-wider px-4 py-3">
+              <th className="text-right text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider px-4 py-3">
                 Totaal
               </th>
             </tr>
@@ -175,16 +175,16 @@ export default function WeekGrid() {
           <tbody>
             {loading && projects.length === 0 ? (
               <tr>
-                <td colSpan={9} className="px-4 py-8 text-center text-sm text-gray-400">
+                <td colSpan={9} className="px-4 py-8 text-center text-sm text-gray-400 dark:text-gray-500">
                   <div className="flex items-center justify-center gap-2">
-                    <RefreshCw className="h-4 w-4 animate-spin text-gray-500" />
+                    <RefreshCw className="h-4 w-4 animate-spin text-gray-500 dark:text-gray-400" />
                     Laden...
                   </div>
                 </td>
               </tr>
             ) : projects.length === 0 ? (
               <tr>
-                <td colSpan={9} className="px-4 py-8 text-center text-sm text-gray-400">
+                <td colSpan={9} className="px-4 py-8 text-center text-sm text-gray-400 dark:text-gray-500">
                   Geen uren geregistreerd deze week.
                 </td>
               </tr>
@@ -196,8 +196,8 @@ export default function WeekGrid() {
                   .reduce((sum, e) => sum + calcDurationMinutes(e.started_at, e.ended_at), 0);
 
                 return (
-                  <tr key={project} className="border-t border-gray-100 hover:bg-gray-50 transition-colors">
-                    <td className="px-4 py-3 text-sm text-gray-900 font-medium max-w-[160px] truncate">
+                  <tr key={project} className="border-t border-gray-100 hover:bg-gray-50 dark:border-gray-800 dark:hover:bg-gray-800 transition-colors">
+                    <td className="px-4 py-3 text-sm text-gray-900 font-medium max-w-[160px] truncate dark:text-gray-100">
                       {project}
                     </td>
                     {days.map((day) => {
@@ -209,8 +209,8 @@ export default function WeekGrid() {
                       return (
                         <td
                           key={day.dateStr}
-                          className={`px-4 py-3 text-sm text-gray-900 ${
-                            day.isToday ? "bg-gray-50" : ""
+                          className={`px-4 py-3 text-sm text-gray-900 dark:text-gray-100 ${
+                            day.isToday ? "bg-blue-50/50 dark:bg-blue-900/10" : ""
                           } ${day.isWeekend ? "opacity-60" : ""}`}
                         >
                           {dayEntries.length > 0 ? (
@@ -219,28 +219,28 @@ export default function WeekGrid() {
                                 <button
                                   key={entry.id}
                                   onClick={() => setSelectedEntry(entry)}
-                                  className="block w-full text-left text-xs bg-gray-100 text-gray-900 rounded px-1.5 py-1 hover:bg-gray-200 transition-colors truncate"
+                                  className="block w-full text-left text-xs bg-blue-50 text-blue-900 rounded px-1.5 py-1 hover:bg-blue-100 transition-colors truncate dark:bg-blue-900/20 dark:text-blue-200 dark:hover:bg-blue-900/30"
                                   title={entry.description || formatDuration(calcDurationMinutes(entry.started_at, entry.ended_at))}
                                 >
                                   {formatDuration(calcDurationMinutes(entry.started_at, entry.ended_at))}
                                   {entry.description && (
-                                    <span className="text-gray-500 ml-1">· {entry.description}</span>
+                                    <span className="text-gray-500 ml-1 dark:text-gray-400">· {entry.description}</span>
                                   )}
                                 </button>
                               ))}
                               {dayEntries.length > 1 && (
-                                <div className="text-xs font-semibold text-gray-600 pt-0.5">
+                                <div className="text-xs font-semibold text-gray-600 pt-0.5 dark:text-gray-400">
                                   {formatDuration(dayMinutes)}
                                 </div>
                               )}
                             </div>
                           ) : (
-                            <span className="text-gray-300">—</span>
+                            <span className="text-gray-300 dark:text-gray-600">—</span>
                           )}
                         </td>
                       );
                     })}
-                    <td className="px-4 py-3 text-sm font-bold text-gray-900 text-right">
+                    <td className="px-4 py-3 text-sm font-bold text-gray-900 text-right dark:text-gray-100">
                       {formatDuration(projectTotal)}
                     </td>
                   </tr>
@@ -249,21 +249,21 @@ export default function WeekGrid() {
             )}
           </tbody>
           <tfoot>
-            <tr className="border-t-2 border-gray-200 bg-gray-50">
-              <td className="px-4 py-3 text-sm font-bold text-gray-900">Totaal</td>
+            <tr className="border-t-2 border-gray-200 bg-gray-50 dark:border-gray-700 dark:bg-gray-800">
+              <td className="px-4 py-3 text-sm font-bold text-gray-900 dark:text-gray-100">Totaal</td>
               {days.map((day) => (
                 <td
                   key={day.dateStr}
-                  className={`px-4 py-3 text-sm font-bold text-gray-900 ${
-                    day.isToday ? "bg-gray-50" : ""
+                  className={`px-4 py-3 text-sm font-bold text-gray-900 dark:text-gray-100 ${
+                    day.isToday ? "bg-blue-50/50 dark:bg-blue-900/10" : ""
                   } ${day.isWeekend ? "opacity-60" : ""}`}
                 >
                   {dayTotals[day.dateStr] > 0
                     ? formatDuration(dayTotals[day.dateStr])
-                    : <span className="text-gray-300 font-normal">—</span>}
+                    : <span className="text-gray-300 font-normal dark:text-gray-600">—</span>}
                 </td>
               ))}
-              <td className="px-4 py-3 text-sm font-bold text-gray-900 text-right">
+              <td className="px-4 py-3 text-sm font-bold text-gray-900 text-right dark:text-gray-100">
                 {weekTotal > 0 ? formatDuration(weekTotal) : "—"}
               </td>
             </tr>
@@ -279,8 +279,8 @@ export default function WeekGrid() {
           );
           if (dayEntries.length === 0 && !day.isToday) return null;
           return (
-            <div key={day.dateStr} className={`bg-white rounded-xl border overflow-hidden ${day.isToday ? "border-gray-200" : "border-gray-200"}`}>
-              <div className={`px-4 py-2 text-xs font-semibold uppercase tracking-wider ${day.isToday ? "bg-gray-100 text-gray-900" : "bg-gray-50 text-gray-500"}`}>
+            <div key={day.dateStr} className={`bg-white dark:bg-gray-900 rounded-xl border overflow-hidden ${day.isToday ? "border-blue-200 dark:border-blue-800" : "border-gray-200 dark:border-gray-800"}`}>
+              <div className={`px-4 py-2 text-xs font-semibold uppercase tracking-wider ${day.isToday ? "bg-blue-50 text-blue-700 dark:bg-blue-900/20 dark:text-blue-300" : "bg-gray-50 text-gray-500 dark:bg-gray-800 dark:text-gray-400"}`}>
                 {formatDateDisplay(day.date)}
                 {dayTotals[day.dateStr] > 0 && (
                   <span className="ml-2 font-bold">{formatDuration(dayTotals[day.dateStr])}</span>
@@ -293,25 +293,25 @@ export default function WeekGrid() {
                   <button
                     key={entry.id}
                     onClick={() => setSelectedEntry(entry)}
-                    className="w-full text-left px-4 py-3 border-t border-gray-100 first:border-t-0 hover:bg-gray-50 transition-colors"
+                    className="w-full text-left px-4 py-3 border-t border-gray-100 first:border-t-0 hover:bg-gray-50 dark:border-gray-800 dark:hover:bg-gray-800 transition-colors"
                   >
                     <div className="flex items-start justify-between gap-2">
                       <div>
-                        <div className="text-sm font-medium text-gray-900">
+                        <div className="text-sm font-medium text-gray-900 dark:text-gray-100">
                           {formatDuration(calcDurationMinutes(entry.started_at, entry.ended_at))}
                         </div>
                         {entry.description && (
-                          <div className="text-xs text-gray-500 mt-0.5 truncate max-w-[220px]">
+                          <div className="text-xs text-gray-500 mt-0.5 truncate max-w-[220px] dark:text-gray-400">
                             {entry.description}
                           </div>
                         )}
                       </div>
                       <div className="text-right shrink-0">
                         {entry.project && (
-                          <div className="text-xs text-gray-900 font-medium">{entry.project.name}</div>
+                          <div className="text-xs text-gray-900 font-medium dark:text-gray-100">{entry.project.name}</div>
                         )}
                         {entry.contact && (
-                          <div className="text-xs text-gray-500">
+                          <div className="text-xs text-gray-500 dark:text-gray-400">
                             {entry.contact.company_name}
                           </div>
                         )}

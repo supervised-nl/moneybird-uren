@@ -8,11 +8,14 @@ import { useEffect, useState } from "react";
 
 export default function NavBar() {
   const pathname = usePathname();
-  const [dark, setDark] = useState(false);
+  const [dark, setDark] = useState(true);
 
   useEffect(() => {
     const saved = localStorage.getItem("theme");
-    if (saved === "dark") {
+    if (saved === "light") {
+      document.documentElement.classList.remove("dark");
+      setDark(false);
+    } else {
       document.documentElement.classList.add("dark");
       setDark(true);
     }
@@ -46,7 +49,7 @@ export default function NavBar() {
                 href="/"
                 className={`text-sm px-3 py-1.5 rounded-md transition-colors ${
                   pathname === "/"
-                    ? "text-gray-900 font-semibold"
+                    ? "text-blue-600 dark:text-blue-400 font-semibold"
                     : "text-gray-600 hover:text-gray-900 font-medium dark:text-gray-400 dark:hover:text-gray-100"
                 }`}
               >
@@ -56,7 +59,7 @@ export default function NavBar() {
                 href="/week"
                 className={`text-sm px-3 py-1.5 rounded-md transition-colors ${
                   pathname === "/week"
-                    ? "text-gray-900 font-semibold"
+                    ? "text-blue-600 dark:text-blue-400 font-semibold"
                     : "text-gray-600 hover:text-gray-900 font-medium dark:text-gray-400 dark:hover:text-gray-100"
                 }`}
               >

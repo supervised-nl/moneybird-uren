@@ -37,17 +37,17 @@ export default function LoginPage() {
     <div className="min-h-screen flex items-center justify-center bg-white dark:bg-gray-950">
       <div className="w-full max-w-sm px-6 py-10">
         <div className="mb-6 text-center">
-          <h1 className="text-2xl font-bold tracking-tight text-gray-900">
+          <h1 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
             Urenregistratie
           </h1>
-          <p className="text-sm text-gray-500 mt-1">Log in om verder te gaan</p>
+          <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">Log in om verder te gaan</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label
               htmlFor="username"
-              className="block text-sm font-medium text-gray-700 mb-1.5"
+              className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5"
             >
               Gebruikersnaam
             </label>
@@ -59,14 +59,14 @@ export default function LoginPage() {
               onChange={(e) => setUsername(e.target.value)}
               autoComplete="username"
               required
-              className="w-full rounded-lg border border-gray-200 bg-white px-3.5 py-2.5 text-sm text-gray-900 placeholder:text-gray-400 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-900/10 focus:border-gray-400 transition-all dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100"
+              className="w-full rounded-lg border border-gray-200 bg-white px-3.5 py-2.5 text-sm text-gray-900 placeholder:text-gray-400 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 transition-all dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100"
             />
           </div>
 
           <div>
             <label
               htmlFor="password"
-              className="block text-sm font-medium text-gray-700 mb-1.5"
+              className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5"
             >
               Wachtwoord
             </label>
@@ -77,18 +77,18 @@ export default function LoginPage() {
               onChange={(e) => setPassword(e.target.value)}
               autoComplete="current-password"
               required
-              className="w-full rounded-lg border border-gray-200 bg-white px-3.5 py-2.5 text-sm text-gray-900 placeholder:text-gray-400 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-900/10 focus:border-gray-400 transition-all dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100"
+              className="w-full rounded-lg border border-gray-200 bg-white px-3.5 py-2.5 text-sm text-gray-900 placeholder:text-gray-400 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 transition-all dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100"
             />
           </div>
 
           {error && (
-            <p className="text-sm text-red-600 mt-1 text-center">{error}</p>
+            <p className="text-sm text-red-600 dark:text-red-400 mt-1 text-center">{error}</p>
           )}
 
           <button
             type="submit"
             disabled={loading}
-            className="w-full inline-flex items-center justify-center rounded-lg bg-gray-950 px-4 py-2.5 text-sm font-semibold text-white hover:bg-gray-800 active:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-900/10 transition-all disabled:opacity-50 disabled:cursor-not-allowed mt-2"
+            className="w-full inline-flex items-center justify-center rounded-lg bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-blue-500 active:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all disabled:opacity-50 disabled:cursor-not-allowed mt-2"
           >
             {loading ? (
               <>

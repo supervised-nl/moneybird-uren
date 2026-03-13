@@ -34,3 +34,9 @@ body {
   background: #030712;
   color: #f3f4f6;
 }
+
+/* Browser-native picker-iconen (kalender, klok) wit maken in dark mode */
+.dark input[type="date"],
+.dark input[type="time"] {
+  color-scheme: dark;
+}
