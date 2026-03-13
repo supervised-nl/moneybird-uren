@@ -4,10 +4,10 @@ export default function WeekPage() {
   return (
     <div>
       <div className="mb-6">
-        <h1 className="text-xl font-semibold text-slate-900 dark:text-slate-100">
+        <h1 className="text-xl font-bold tracking-tight text-gray-950 dark:text-gray-100">
           Weekoverzicht
         </h1>
-        <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
+        <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
           Overzicht van je geregistreerde uren per week.
         </p>
       </div>

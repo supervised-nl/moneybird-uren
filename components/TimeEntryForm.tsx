@@ -118,8 +118,6 @@ export default function TimeEntryForm() {
             (f) => f.contactId === contactId && f.projectId === projectId
           );
           if (!existing) {
-            // We'll save names from the DOM since we don't have them here
-            // just save the IDs for now
             saveFavorite({
               contactId,
               contactName: "",
@@ -146,7 +144,7 @@ export default function TimeEntryForm() {
     [date, startTime, endTime, description, contactId, projectId, billable]
   );
 
-  // Enter key handler for the form
+  // Ctrl+Enter om op te slaan
   useEffect(() => {
     function handleKeyDown(e: KeyboardEvent) {
       if (
@@ -165,14 +163,14 @@ export default function TimeEntryForm() {
     <>
       <form onSubmit={handleSubmit} className="space-y-5">
         {error && (
-          <div className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-md px-3 py-2">
+          <div className="text-sm text-red-700 bg-red-50 border border-red-200 rounded-lg px-3.5 py-2.5">
             {error}
           </div>
         )}
 
         {/* Datum */}
         <div>
-          <label className="block text-sm font-medium text-slate-700 mb-1.5">
+          <label className="block text-sm font-medium text-gray-700 mb-1.5">
             Datum
           </label>
           <div className="flex gap-2">
@@ -180,7 +178,7 @@ export default function TimeEntryForm() {
               type="date"
               value={date}
               onChange={(e) => setDate(e.target.value)}
-              className="flex-1 rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-colors"
+              className="flex-1 rounded-lg border border-gray-200 bg-white px-3.5 py-2.5 text-sm text-gray-950 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 transition-all dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100"
               required
             />
             <button
@@ -190,7 +188,7 @@ export default function TimeEntryForm() {
                 d.setDate(d.getDate() - 1);
                 setDate(d.toLocaleDateString("en-CA", { timeZone: "Europe/Amsterdam" }));
               }}
-              className="inline-flex items-center justify-center rounded-md bg-white border border-slate-300 px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 transition-colors"
+              className="inline-flex items-center justify-center rounded-lg bg-white border border-gray-200 px-3 py-2.5 text-xs font-semibold text-gray-700 shadow-sm hover:bg-gray-50 hover:border-gray-300 transition-all"
             >
               Gisteren
             </button>
@@ -201,7 +199,7 @@ export default function TimeEntryForm() {
                 d.setDate(d.getDate() - 2);
                 setDate(d.toLocaleDateString("en-CA", { timeZone: "Europe/Amsterdam" }));
               }}
-              className="inline-flex items-center justify-center rounded-md bg-white border border-slate-300 px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 transition-colors"
+              className="inline-flex items-center justify-center rounded-lg bg-white border border-gray-200 px-3 py-2.5 text-xs font-semibold text-gray-700 shadow-sm hover:bg-gray-50 hover:border-gray-300 transition-all"
             >
               Eergisteren
             </button>
@@ -211,8 +209,8 @@ export default function TimeEntryForm() {
         {/* Tijden */}
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1.5">
-              <Clock className="inline h-3.5 w-3.5 mr-1 text-slate-400" />
+            <label className="block text-sm font-medium text-gray-700 mb-1.5">
+              <Clock className="inline h-3.5 w-3.5 mr-1 text-gray-400" />
               Starttijd
             </label>
             <input
@@ -220,13 +218,13 @@ export default function TimeEntryForm() {
               value={startTime}
               onChange={(e) => setStartTime(e.target.value)}
               onBlur={handleStartTimeBlur}
-              className="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-colors"
+              className="w-full rounded-lg border border-gray-200 bg-white px-3.5 py-2.5 text-sm text-gray-950 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 transition-all dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100"
               required
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1.5">
-              <Clock className="inline h-3.5 w-3.5 mr-1 text-slate-400" />
+            <label className="block text-sm font-medium text-gray-700 mb-1.5">
+              <Clock className="inline h-3.5 w-3.5 mr-1 text-gray-400" />
               Eindtijd
             </label>
             <input
@@ -234,7 +232,7 @@ export default function TimeEntryForm() {
               value={endTime}
               onChange={(e) => setEndTime(e.target.value)}
               onBlur={handleEndTimeBlur}
-              className="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-colors"
+              className="w-full rounded-lg border border-gray-200 bg-white px-3.5 py-2.5 text-sm text-gray-950 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 transition-all dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100"
               required
             />
           </div>
@@ -242,7 +240,7 @@ export default function TimeEntryForm() {
 
         {/* Duur */}
         <div>
-          <label className="block text-sm font-medium text-slate-700 mb-1.5">
+          <label className="block text-sm font-medium text-gray-700 mb-1.5">
             Of: Duur
           </label>
           <DurationInput
@@ -255,7 +253,7 @@ export default function TimeEntryForm() {
 
         {/* Klant */}
         <div>
-          <label className="block text-sm font-medium text-slate-700 mb-1.5">
+          <label className="block text-sm font-medium text-gray-700 mb-1.5">
             Klant
           </label>
           <ContactPicker value={contactId} onChange={setContactId} />
@@ -263,7 +261,7 @@ export default function TimeEntryForm() {
 
         {/* Project */}
         <div>
-          <label className="block text-sm font-medium text-slate-700 mb-1.5">
+          <label className="block text-sm font-medium text-gray-700 mb-1.5">
             Project
           </label>
           <ProjectPicker value={projectId} onChange={setProjectId} />
@@ -271,7 +269,7 @@ export default function TimeEntryForm() {
 
         {/* Beschrijving */}
         <div>
-          <label className="block text-sm font-medium text-slate-700 mb-1.5">
+          <label className="block text-sm font-medium text-gray-700 mb-1.5">
             Beschrijving
           </label>
           <input
@@ -280,7 +278,7 @@ export default function TimeEntryForm() {
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             placeholder="Wat heb je gedaan?"
-            className="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-colors"
+            className="w-full rounded-lg border border-gray-200 bg-white px-3.5 py-2.5 text-sm text-gray-950 placeholder:text-gray-400 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 transition-all dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100"
           />
         </div>
 
@@ -292,7 +290,7 @@ export default function TimeEntryForm() {
             aria-checked={billable}
             onClick={() => setBillable((b) => !b)}
             className={`relative inline-flex h-5 w-9 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors ${
-              billable ? "bg-brand-500" : "bg-slate-200"
+              billable ? "bg-sky-500" : "bg-gray-200"
             }`}
           >
             <span
@@ -301,13 +299,13 @@ export default function TimeEntryForm() {
               }`}
             />
           </button>
-          <label className="text-sm font-medium text-slate-700">Factureerbaar</label>
+          <label className="text-sm font-medium text-gray-700">Factureerbaar</label>
         </div>
 
         {/* Favorieten */}
         {favorites.length > 0 && (
           <div>
-            <p className="text-xs font-medium text-slate-500 mb-2">Recente combinaties</p>
+            <p className="text-xs font-medium text-gray-500 mb-2">Recente combinaties</p>
             <div className="flex flex-wrap gap-2">
               {favorites.map((fav, i) => (
                 <button
@@ -317,7 +315,7 @@ export default function TimeEntryForm() {
                     setContactId(fav.contactId);
                     setProjectId(fav.projectId);
                   }}
-                  className="inline-flex items-center rounded-md border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-medium text-slate-600 hover:bg-brand-50 hover:text-brand-600 hover:border-brand-200 transition-colors"
+                  className="inline-flex items-center rounded-lg border border-gray-200 bg-gray-50 px-3 py-1.5 text-xs font-semibold text-gray-600 hover:bg-sky-50 hover:text-sky-700 hover:border-sky-200 transition-all"
                 >
                   {fav.contactName || fav.contactId || "—"} / {fav.projectName || fav.projectId || "—"}
                 </button>
@@ -330,11 +328,11 @@ export default function TimeEntryForm() {
           <button
             type="submit"
             disabled={saving}
-            className="w-full inline-flex items-center justify-center rounded-md bg-brand-500 px-4 py-2.5 text-sm font-medium text-white hover:bg-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-500/20 active:bg-brand-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full inline-flex items-center justify-center rounded-lg bg-sky-500 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-sky-600 active:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {saving ? "Opslaan..." : "Uren opslaan"}
           </button>
-          <p className="text-center text-xs text-slate-400 mt-2">
+          <p className="text-center text-xs text-gray-400 mt-2">
             Of druk Ctrl+Enter
           </p>
         </div>

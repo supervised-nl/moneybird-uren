@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Clock, Moon, Sun } from "lucide-react";
+import { Clock, LogOut, Moon, Sun } from "lucide-react";
+import { signOut } from "next-auth/react";
 import { useEffect, useState } from "react";
 
 export default function NavBar() {
@@ -30,46 +31,56 @@ export default function NavBar() {
   }
 
   return (
-    <nav className="sticky top-0 z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm border-b border-slate-200 dark:border-slate-700">
+    <nav className="sticky top-0 z-40 border-b border-gray-200 bg-white/80 dark:bg-gray-950/80 backdrop-blur-md dark:border-gray-800">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-14">
           <div className="flex items-center gap-6">
-            <div className="flex items-center gap-2 text-brand-500">
+            <div className="flex items-center gap-2 text-sky-500">
               <Clock className="h-5 w-5" />
-              <span className="font-semibold text-slate-900 dark:text-slate-100 text-sm">
+              <span className="font-semibold text-gray-950 dark:text-gray-100 text-sm">
                 Moneybird Uren
               </span>
             </div>
             <div className="flex items-center gap-1">
               <Link
                 href="/"
-                className={`text-sm font-medium px-3 py-1.5 rounded-md transition-colors ${
+                className={`text-sm px-3 py-1.5 rounded-md transition-colors ${
                   pathname === "/"
-                    ? "text-brand-600 bg-brand-50 dark:bg-brand-900/30"
-                    : "text-slate-600 hover:text-brand-600 dark:text-slate-400 dark:hover:text-brand-400"
+                    ? "text-sky-600 font-semibold"
+                    : "text-gray-600 hover:text-gray-950 font-medium dark:text-gray-400 dark:hover:text-gray-100"
                 }`}
               >
                 Uren loggen
               </Link>
               <Link
                 href="/week"
-                className={`text-sm font-medium px-3 py-1.5 rounded-md transition-colors ${
+                className={`text-sm px-3 py-1.5 rounded-md transition-colors ${
                   pathname === "/week"
-                    ? "text-brand-600 bg-brand-50 dark:bg-brand-900/30"
-                    : "text-slate-600 hover:text-brand-600 dark:text-slate-400 dark:hover:text-brand-400"
+                    ? "text-sky-600 font-semibold"
+                    : "text-gray-600 hover:text-gray-950 font-medium dark:text-gray-400 dark:hover:text-gray-100"
                 }`}
               >
                 Weekoverzicht
               </Link>
             </div>
           </div>
-          <button
-            onClick={toggleDark}
-            className="p-2 rounded-md text-slate-500 hover:text-slate-700 hover:bg-slate-100 dark:text-slate-400 dark:hover:text-slate-200 dark:hover:bg-slate-800 transition-colors"
-            aria-label="Toggle dark mode"
-          >
-            {dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={toggleDark}
+              className="p-2 rounded-md text-gray-500 hover:text-gray-950 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-gray-100 dark:hover:bg-gray-800 transition-colors"
+              aria-label="Toggle dark mode"
+            >
+              {dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+            </button>
+            <button
+              onClick={() => signOut({ callbackUrl: "/login" })}
+              className="p-2 rounded-md text-gray-500 hover:text-gray-950 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-gray-100 dark:hover:bg-gray-800 transition-colors"
+              aria-label="Uitloggen"
+              title="Uitloggen"
+            >
+              <LogOut className="h-4 w-4" />
+            </button>
+          </div>
         </div>
       </div>
     </nav>
