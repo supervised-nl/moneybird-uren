@@ -16,7 +16,7 @@ export default function NavBar() {
             <div className="flex items-center gap-2 text-gray-500">
               <Clock className="h-5 w-5" />
               <span className="font-semibold text-gray-100 text-sm">
-                Moneybird Uren
+                Supervised Admin
               </span>
             </div>
             <div className="flex items-center gap-1">

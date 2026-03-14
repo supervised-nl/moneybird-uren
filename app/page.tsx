@@ -8,7 +8,7 @@ export default function HomePage() {
           Uren loggen
         </h1>
         <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-          Registreer je uren snel en direct in Moneybird.
+          Registreer je uren snel en direct.
         </p>
       </div>
       <div className="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 p-6">

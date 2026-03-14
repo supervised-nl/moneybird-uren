@@ -10,8 +10,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Moneybird Uren",
-  description: "Snel uren registreren in Moneybird",
+  title: "Supervised Admin",
+  description: "Snel uren registreren via Supervised Admin",
 };
 
 export default function RootLayout({
