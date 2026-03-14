@@ -20,12 +20,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="nl" suppressHydrationWarning>
-      <head>
-        {/* Zet dark mode vóór eerste render om witte flits te voorkomen. Default = dark. */}
-        <script dangerouslySetInnerHTML={{ __html: `try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.classList.remove('dark')}else{document.documentElement.classList.add('dark')}}catch(e){}` }} />
-      </head>
-      <body className={`${inter.className} antialiased bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100`}>
+    <html lang="nl" className="dark">
+      <head></head>
+      <body className={`${inter.className} antialiased bg-gray-950 text-gray-100`}>
         <Providers>
           <NavBar />
           <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">

@@ -178,7 +178,7 @@ export default function TimeEntryForm() {
               type="date"
               value={date}
               onChange={(e) => setDate(e.target.value)}
-              className="flex-1 rounded-lg border border-gray-200 bg-white px-3.5 py-2.5 text-sm text-gray-900 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 transition-all dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100"
+              className="flex-1 rounded-lg border border-gray-200 bg-white px-3.5 py-2.5 text-base sm:text-sm text-gray-900 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 transition-all dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100"
               required
             />
             <button
@@ -207,9 +207,9 @@ export default function TimeEntryForm() {
         </div>
 
         {/* Tijden */}
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-3">
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
               <Clock className="inline h-3.5 w-3.5 mr-1 text-gray-400" />
               Starttijd
             </label>
@@ -218,12 +218,12 @@ export default function TimeEntryForm() {
               value={startTime}
               onChange={(e) => setStartTime(e.target.value)}
               onBlur={handleStartTimeBlur}
-              className="w-full rounded-lg border border-gray-200 bg-white px-3.5 py-2.5 text-sm text-gray-900 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 transition-all dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100"
+              className="w-full rounded-lg border border-gray-200 bg-white px-2.5 py-1.5 sm:px-3.5 sm:py-2.5 text-base sm:text-sm text-gray-900 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 transition-all dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100"
               required
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
               <Clock className="inline h-3.5 w-3.5 mr-1 text-gray-400" />
               Eindtijd
             </label>
@@ -232,7 +232,7 @@ export default function TimeEntryForm() {
               value={endTime}
               onChange={(e) => setEndTime(e.target.value)}
               onBlur={handleEndTimeBlur}
-              className="w-full rounded-lg border border-gray-200 bg-white px-3.5 py-2.5 text-sm text-gray-900 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 transition-all dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100"
+              className="w-full rounded-lg border border-gray-200 bg-white px-2.5 py-1.5 sm:px-3.5 sm:py-2.5 text-base sm:text-sm text-gray-900 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 transition-all dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100"
               required
             />
           </div>
@@ -278,7 +278,7 @@ export default function TimeEntryForm() {
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             placeholder="Wat heb je gedaan?"
-            className="w-full rounded-lg border border-gray-200 bg-white px-3.5 py-2.5 text-sm text-gray-900 placeholder:text-gray-400 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 transition-all dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100"
+            className="w-full rounded-lg border border-gray-200 bg-white px-3.5 py-2.5 text-base sm:text-sm text-gray-900 placeholder:text-gray-400 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 transition-all dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100"
           />
         </div>
 

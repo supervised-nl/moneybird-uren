@@ -25,18 +25,13 @@
 }
 
 body {
-  background: #ffffff;
-  color: #111827;
+  background: #030712;
+  color: #f3f4f6;
   font-family: "Inter", system-ui, -apple-system, sans-serif;
 }
 
-.dark body {
-  background: #030712;
-  color: #f3f4f6;
-}
-
-/* Browser-native picker-iconen (kalender, klok) wit maken in dark mode */
-.dark input[type="date"],
-.dark input[type="time"] {
+/* Browser-native picker-iconen (kalender, klok) wit maken */
+input[type="date"],
+input[type="time"] {
   color-scheme: dark;
 }
